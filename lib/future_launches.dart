@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'detail_page.dart';
+import 'future_details.dart';
 
 class FutureLaunchesScreen extends StatefulWidget {
   static const String id = 'future';
@@ -19,7 +19,7 @@ class _FutureLaunchesScreenState extends State<FutureLaunchesScreen> {
           onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (context) => DetailsPage(details: f),
+                builder: (context) => FutureDetails(details: f),
               ),
             );
           },

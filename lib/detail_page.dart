@@ -83,7 +83,7 @@ class _DetailsPageState extends State<DetailsPage> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.fromLTRB(18.0, 0.0, 8.0, 8.0),
                     child: Container(
                       child: Text(
                         widget.details['launch_date_local'],

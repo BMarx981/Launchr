@@ -4,6 +4,7 @@ import 'spaceX_model.dart';
 import 'future_launches.dart';
 import 'past_launches.dart';
 import 'detail_page.dart';
+import 'future_details.dart';
 
 void main() => runApp(Launchr());
 
@@ -19,6 +20,7 @@ class Launchr extends StatelessWidget {
         DetailsPage.id: (context) => DetailsPage(),
         LaunchrHomePage.id: (context) =>
             LaunchrHomePage(title: 'SpaceX Launchr'),
+        FutureDetails.id: (context) => FutureDetails(),
       },
       title: 'SpaceX Launchr',
       theme: ThemeData(
