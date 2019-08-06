@@ -14,22 +14,9 @@ class _DetailsPageState extends State<DetailsPage> {
     if (widget.details['links']['flickr_images'] != null) {
       for (var links in widget.details['links']['flickr_images']) {
         print(links);
-//      Container container = Container(
-//        height: 400.0,
-//        width: 70.0,
-//        decoration: BoxDecoration(
-//          color: Colors.black.withOpacity(.5),
-//          borderRadius: BorderRadius.circular(30.0),
-//          image: DecorationImage(
-//            image: NetworkImage(links),
-//            fit: BoxFit.fill,
-//          ),
-//        ),
-//      );
         list.add(links);
       }
     }
-
     return list;
   }
 
@@ -65,6 +52,58 @@ class _DetailsPageState extends State<DetailsPage> {
             padding: const EdgeInsets.all(8.0),
             child: Container(
               decoration: BoxDecoration(
+                color: Colors.grey[300],
+                borderRadius: BorderRadiusDirectional.circular(20.0),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(18.0, 8.0, 0.0, 0.0),
+                    child: Container(
+                      child: Text(
+                        'Launched From:',
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 25.0,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(18.0, 8.0, 18.0, 18.0),
+                    child: Text(
+                      widget.details['launch_site']['site_name_long'],
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20.0,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      child: Text(
+                        widget.details['launch_date_local'],
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 25.0,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(height: 20.0),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              decoration: BoxDecoration(
                 color: Colors.grey[350],
                 borderRadius: BorderRadius.circular(30.0),
               ),
@@ -83,42 +122,6 @@ class _DetailsPageState extends State<DetailsPage> {
             ),
           ),
           SizedBox(height: 20.0),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.grey[300],
-                borderRadius: BorderRadiusDirectional.circular(20.0),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Container(
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(0.0, 8.0, 0.0, 0.0),
-                      child: Text(
-                        'Launched From:',
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                            color: Colors.deepPurpleAccent, fontSize: 25.0),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(18.0, 8.0, 18.0, 18.0),
-                    child: Text(
-                      widget.details['launch_site']['site_name_long'],
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20.0,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
         ],
       ),
     );

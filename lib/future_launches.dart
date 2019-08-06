@@ -13,58 +13,61 @@ class _FutureLaunchesScreenState extends State<FutureLaunchesScreen> {
   List<Widget> _buildListWidget() {
     List<Widget> wList = [];
     for (var f in widget.fList) {
-      wList.add(GestureDetector(
-        onTap: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => DetailsPage(details: f),
-            ),
-          );
-        },
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.grey.withOpacity(.4),
+      wList.add(
+        GestureDetector(
+          behavior: HitTestBehavior.translucent,
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => DetailsPage(details: f),
               ),
-              child: Text(
-                f['flight_number'].toString(),
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 40.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            SizedBox(
-              child: Container(
-                height: 10.0,
-                decoration: BoxDecoration(
-                  color: Colors.black,
-                ),
-              ),
-              width: 50.0,
-            ),
-            Expanded(
-              flex: 3,
-              child: Container(
+            );
+          },
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Container(
                 decoration: BoxDecoration(
                   color: Colors.grey.withOpacity(.4),
                 ),
                 child: Text(
-                  f['mission_name'],
+                  f['flight_number'].toString(),
                   style: TextStyle(
-                    fontSize: 30.0,
                     color: Colors.white,
+                    fontSize: 40.0,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
-            ),
-            SizedBox(width: 50.0),
-          ],
+              SizedBox(
+                child: Container(
+                  height: 10.0,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                  ),
+                ),
+                width: 50.0,
+              ),
+              Expanded(
+                flex: 3,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey.withOpacity(.4),
+                  ),
+                  child: Text(
+                    f['mission_name'],
+                    style: TextStyle(
+                      fontSize: 30.0,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(width: 50.0),
+            ],
+          ),
         ),
-      ));
+      );
     }
     return wList;
   }
