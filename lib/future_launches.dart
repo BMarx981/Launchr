@@ -41,9 +41,9 @@ class _FutureLaunchesScreenState extends State<FutureLaunchesScreen> {
               ),
               SizedBox(
                 child: Container(
-                  height: 10.0,
+                  height: 40.0,
                   decoration: BoxDecoration(
-                    color: Colors.black,
+                    color: Colors.black.withOpacity(0.01),
                   ),
                 ),
                 width: 50.0,
@@ -52,13 +52,17 @@ class _FutureLaunchesScreenState extends State<FutureLaunchesScreen> {
                 flex: 3,
                 child: Container(
                   decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(45),
                     color: Colors.grey.withOpacity(.4),
                   ),
-                  child: Text(
-                    f['mission_name'],
-                    style: TextStyle(
-                      fontSize: 30.0,
-                      color: Colors.white,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      f['mission_name'],
+                      style: TextStyle(
+                        fontSize: 25.0,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),
