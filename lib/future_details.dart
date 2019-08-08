@@ -54,9 +54,9 @@ class _FutureDetailsState extends State<FutureDetails> {
               ContentBox(
                 widget: widget,
                 title: "Details",
-                content: widget.details['details'] == null
+                content: widget.details['details'].toString() == null
                     ? 'No Details'
-                    : widget.details['details'],
+                    : widget.details['details'].toString(),
               )
             ],
           ),

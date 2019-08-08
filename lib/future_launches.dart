@@ -52,7 +52,7 @@ class _FutureLaunchesScreenState extends State<FutureLaunchesScreen> {
                 flex: 3,
                 child: Container(
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(45),
+                    borderRadius: BorderRadius.circular(45.0),
                     color: Colors.grey.withOpacity(.4),
                   ),
                   child: Padding(
