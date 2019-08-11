@@ -13,11 +13,20 @@ class _DetailsPageState extends State<DetailsPage> {
     List<Container> list = [];
     if (widget.details['links']['flickr_images'] != null) {
       for (var links in widget.details['links']['flickr_images']) {
-        print(links);
         list.add(links);
       }
     }
     return list;
+  }
+
+  String _getDate(String data) {
+    DateTime dateTime = DateTime.parse(data);
+    if (dateTime == null) {
+      return "";
+    } else {
+      return '${dateTime.month}/${dateTime.day}/${dateTime.year} at \n'
+          '${dateTime.hour}:${dateTime.minute}';
+    }
   }
 
   @override
@@ -56,7 +65,7 @@ class _DetailsPageState extends State<DetailsPage> {
                 borderRadius: BorderRadiusDirectional.circular(20.0),
               ),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.fromLTRB(18.0, 8.0, 0.0, 0.0),
@@ -86,7 +95,7 @@ class _DetailsPageState extends State<DetailsPage> {
                     padding: const EdgeInsets.fromLTRB(18.0, 0.0, 8.0, 8.0),
                     child: Container(
                       child: Text(
-                        widget.details['launch_date_local'],
+                        _getDate(widget.details['launch_date_local']),
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Colors.black,

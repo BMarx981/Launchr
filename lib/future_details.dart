@@ -11,15 +11,16 @@ class FutureDetails extends StatefulWidget {
 class _FutureDetailsState extends State<FutureDetails> {
   var date = '';
   String _getDate() {
-    print(
-      widget.details['details'],
-    );
     var dateTime = DateTime.parse(widget.details['launch_date_utc']);
-    return dateTime.month.toString() +
-        '/' +
-        dateTime.day.toString() +
-        '/' +
-        dateTime.year.toString();
+    if (dateTime == null) {
+      return '';
+    } else {
+      return dateTime.month.toString() +
+          '/' +
+          dateTime.day.toString() +
+          '/' +
+          dateTime.year.toString();
+    }
   }
 
   @override
@@ -32,8 +33,7 @@ class _FutureDetailsState extends State<FutureDetails> {
       ),
       body: Container(
         child: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+          child: ListView(
             children: <Widget>[
               ContentBox(
                 widget: widget,
@@ -54,7 +54,7 @@ class _FutureDetailsState extends State<FutureDetails> {
               ContentBox(
                 widget: widget,
                 title: "Details",
-                content: widget.details['details'].toString() == null
+                content: widget.details['details'] == null
                     ? 'No Details'
                     : widget.details['details'].toString(),
               )
